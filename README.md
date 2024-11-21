@@ -11,6 +11,8 @@ This project is a Node.js-based backend application designed for managing school
 - Language: JavaScript 🌐
 
 ## 📜 Features
+### 🔑 Admin Sign-Up & Login
+- Admins must sign up and log in to manage school resources.
  ### 🧑‍🎓 Student Management
 - Create, read, update, and delete student records.
 - Upload student profile pictures securely using Cloudinary.
@@ -23,6 +25,7 @@ This project is a Node.js-based backend application designed for managing school
 - Token-based authentication ensures only authorized users access sensitive APIs.
 
 ## 📂 Project Structure
+```
 src/
 ├── config/              # Configuration files
 ├── controllers/         # Business logic for API endpoints
@@ -32,6 +35,7 @@ src/
 ├── util/                # Utility functions (Multer & Cloudinary setup)
 ├── app.js               # Express app configuration
 └── server.js            # Entry point
+```
 
 ## 🌟 API Endpoints
 The following endpoints are used to manage Students, Teachers, and Classes with similar CRUD functionalities.
@@ -40,6 +44,35 @@ The following endpoints are used to manage Students, Teachers, and Classes with 
 - Authentication: Secured with isAuth middleware using JWT.
 - File Uploads: Uses Multer for handling uploads and Cloudinary for storage.
 - CRUD Operations: Full support for create, read, update, and delete operations.
+
+### 🔑 Admin API 🔐
+Admins must sign up and log in to perform operations on students, teachers, or classes.
+
+|Method|	Endpoint|	Description|
+|------|-------|----------|
+|POST	|/api/admin/signup	|Sign up as an admin.|
+|POST	|/api/admin/login	|Log in to receive a JWT token.|
+
+- Details
+1. Sign-Up (/signup)
+Allows a new admin to register.
+Example Request:
+```
+{
+  "name": "Admin",
+  "email": "admin@example.com",
+  "password": "securepassword"
+}
+```
+2. Login (/login)
+Authenticate the admin and return a JWT token.
+Example Request:
+```
+{
+  "email": "admin@example.com",
+  "password": "securepassword"
+}
+```
 
 ### Student API 🧑‍🎓
 |Method|	Endpoint|	Description|
